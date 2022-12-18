@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex"/>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-75067929-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag("js", new Date());
+
+      gtag("config", "UA-75067929-7");
+    </script>
+
+    {% include "material/includes/material_css.html" %}
+    {% include "material/includes/material_js.html" %}
+    {% load material_form %}
+    {% load static %}
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/navbar.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/icons.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        M.FormSelect.init(document.querySelectorAll('select'));
+      });
+    </script>
+
+    {% block head %}
+    {% endblock %}
+
+    <title>{% block title %}ExeLounge{% endblock %}</title>
+</head>
+<body>
+<ul class="navbar">
+    <li><a href="/"><i class="material-icons md-24">home</i> Home</a></li>
+    <li><a href="/forums"><i class="material-icons md-24">forum</i><span
+            class="navbar-text"> Forums</span></a></li>
+    <li><a href="/live-chat"><i class="material-icons md-24">chat</i> Live Chat</a>
+    </li>
+    <li><a href="/settings"><i class="material-icons md-24">settings</i> Settings</a></li>
+    <li class="navbar-right"><a href="/logout"><i class="material-icons md-24">logout</i> Logout</a></li>
+    <li class="navbar-right"><img class="profile-pic" src="{{ profile_pic.url }}"
+                                  alt="Profile picture of {{ profile_pic.name }}"></li>
+</ul>
+<div class="navbar-buffer"></div>
+
+<h1>{% block page-title %}ExeLounge{% endblock %}</h1>
+<div id="content">
+    {% block content %}{% endblock %}
+</div>
+<br>
+<br>
+</body>
+</html>

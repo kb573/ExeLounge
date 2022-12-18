@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load material_form %}
+
+{% block title %}{{ title }} - ExeLounge{% endblock %}
+
+{% block page-title %}{{ header }}{% endblock %}
+
+{% block content %}
+    <div class="forum-thread">
+        <p>{{ description }}</p>
+
+        {# Form to create a new post #}
+        <h4>Create a new post</h4>
+        <form action="" method="post" style="text-align: left">
+            <style>.materialize-textarea {
+                min-height: 150px !important;
+            }</style>
+            {% csrf_token %}
+            {% form form=create_form %}
+                {% part create_form.title prefix %}<i class="material-icons prefix">title</i>{% endpart %}
+                {% part create_form.body prefix %}<i class="material-icons prefix">subject</i>{% endpart %}
+            {% endform %}
+            <input type="submit" class="btn" value="Post">
+        </form>
+
+        {# Posts #}
+        <br>
+        {% if posts|length != 0 %}
+            <h4>Posts</h4>
+            <table>
+                <th>Date & Time</th>
+                <th>Title</th>
+                <th colspan="2">Author</th>
+                {% for item in posts %}
+                    <tr>
+                        <td>{{ item.date }}</td>
+                        <td style="width: 55%"><b><a href="{{ item.url }}">{{ item.title }}</a></b></td>
+                        <td><img height="40px" width="40px" src="{{ item.photo }}"
+                                 alt="Profile picture of {{ item.author }}">
+                        </td>
+                        <td>{{ item.author }}</td>
+                        <td></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p><b>There are no posts yet, but you can add one above.</b></p>
+        {% endif %}
+
+    </div>
+{% endblock %}

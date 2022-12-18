@@ -1,0 +1,73 @@
+/* Adapted from W3 Schools
+   https://www.w3schools.com/css/tryit.asp?filename=trycss_navbar_horizontal_responsive
+   https://www.w3schools.com/howto/howto_css_fixed_menu.asp */
+
+body {
+    margin: 0;
+}
+
+ul.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0092AF;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+ul.navbar li {
+    float: left;
+}
+
+ul.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.navbar li a:hover:not(.active) {
+    background-color: #B2DBF6;
+    color: #111
+}
+
+ul.navbar li.navbar-right {
+    float: right;
+}
+
+ul li a:not(i.material-icons) {
+    font-size: 16px;
+}
+
+div.navbar-buffer {
+    height: 60px;
+}
+
+img.profile-pic {
+    height: 45px;
+    margin: 5px 5px 0;
+}
+
+@media screen and (max-width: 600px) {
+    ul.navbar {
+        position: static;
+    }
+
+    ul.navbar li.navbar-right,
+    ul.navbar li {
+        float: none;
+    }
+
+    div.navbar-buffer {
+        display: none;
+    }
+
+    img.profile-pic {
+        margin: 5px auto;
+        display: block;
+    }
+
+}

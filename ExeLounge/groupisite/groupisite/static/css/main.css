@@ -1,0 +1,105 @@
+body {
+    background-color: #F5F5F5;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Gill Sans Nova", sans-serif;
+}
+
+h1, h2, h3 {
+    color: #1E3664;
+}
+
+h1 {
+    font: bold 3.56rem "Gill Sans Nova", sans-serif;
+}
+
+h2 {
+    font: bold 2.92rem "Gill Sans Nova", sans-serif;
+}
+
+h3 {
+    font: bold 2.28rem "Gill Sans Nova", sans-serif;
+}
+
+h4 {
+    font: bold 1.64rem "Gill Sans Nova", sans-serif;
+    color: black;
+}
+
+p, label, ul, li {
+    font-family: "Arial", sans-serif;
+}
+
+h1, label {
+    text-align: center;
+}
+
+#disclaimer {
+    text-align: center;
+    font: 16px "Arial", sans-serif;
+    font-variant: all-small-caps;
+}
+
+#form-errors, ul.errorlist li {
+    font: bold 16px "Arial", sans-serif;
+    color: orangered;
+}
+
+#anon-content {
+    margin: 0 auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    max-width: 550px;
+}
+
+#content {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#id_modules {
+    min-height: 150px;
+}
+
+ul li:not(.disabled) span label {
+    color: black
+}
+
+ul li.disabled {
+    display: none;
+}
+
+.btn, .btn:hover, .btn:focus {
+    background-color: #0092AF;
+}
+
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+
+.forum-leaderboard {
+    max-width: 500px;
+    min-width: 200px;
+}
+
+.forum-leaderboard tr td:first-child {
+    font: bold 20px Arial, sans-serif;
+}
+
+.chat-log {
+    height: 380px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #fff;
+    font-size: 0.9em;
+    flex-direction: column-reverse;
+}
+
+.forum-thread, .forum-post {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 0
+}

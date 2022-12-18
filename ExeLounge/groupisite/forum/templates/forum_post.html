@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load material_form %}
+
+{% block title %}{{ title }} - ExeLounge{% endblock %}
+
+{% block page-title %}{% endblock %}
+
+{% block content %}
+    <div class="forum-post">
+
+        {# Post details #}
+        <h3 style="margin-bottom: 0">{{ title }}</h3>
+        <i>Asked {{ author }} on {{ date }}.</i>
+        <p>{{ body }}</p>
+
+        {# Replies #}
+        {% if replies|length != 0 %}
+            <h4>Replies</h4>
+            <table>
+                <th>Date & Time</th>
+                <th>Reply</th>
+                <th colspan="2">Author</th>
+                {% for item in replies %}
+                    <tr>
+                        <td>{{ item.date }}</td>
+                        <td style="width: 55%">{{ item.body }}</td>
+                        <td><img height="40px" width="40px" src="{{ item.photo }}"
+                                 alt="Profile picture of {{ item.author }}">
+                        </td>
+                        <td>{{ item.author }}</td>
+                        <td></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p><b>There are no replies yet, but you can add one below.</b></p>
+        {% endif %}
+
+        {# Form to create a reply #}
+        <br>
+        <h4>Create a new reply</h4>
+        <form action="" method="post" style="text-align: left">
+            <style>.materialize-textarea {
+                min-height: 150px !important;
+            }</style>
+            {% csrf_token %}
+            {% form form=create_form %}
+                {% part create_form.body prefix %}<i class="material-icons prefix">reply</i>{% endpart %}
+            {% endform %}
+            <input type="submit" class="btn" value="Reply">
+        </form>
+        <br>
+    </div>
+
+{% endblock %}

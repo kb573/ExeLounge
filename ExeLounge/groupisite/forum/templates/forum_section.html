@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load material_form %}
+
+{% block title %}{{ title }} - ExeLounge{% endblock %}
+
+{% block page-title %}{{ header }}{% endblock %}
+
+{% block content %}
+    <div style="text-align: center">
+        <p>{{ description }}</p>
+        <p>{{ instructions }}</p>
+        <br>
+        {% for item in threads %}
+            <a href="{{ item.url }}">{{ item.name }}</a><br><br>
+        {% endfor %}
+    </div>
+{% endblock %}

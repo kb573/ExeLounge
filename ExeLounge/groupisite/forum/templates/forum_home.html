@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load material_form %}
+
+{% block title %}{{ title }} - ExeLounge{% endblock %}
+
+{% block page-title %}{{ header }}{% endblock %}
+
+{% block content %}
+
+    {# The user's personal threads #}
+    <div style="text-align: center">
+        {% if my_threads|length != 0 %}
+            <h3>My Threads</h3>
+            |
+            {% for thread in my_threads %}
+                <b><a href="/{{ thread.url }}">{{ thread.name }}</a></b>  |
+            {% endfor %}
+        {% endif %}
+
+        {# All the academic sections #}
+        {% if academic != None %}
+            <br><br>
+            <h3>Academic Sections</h3>
+            {% for section in academic %}
+                <a href="/{{ section.url }}">{{ section.name }}</a><br>
+            {% endfor %}
+        {% endif %}
+
+        {# All the Guild sections #}
+        {% if guild != None %}
+            <br><br>
+            <h3>Students' Guild Sections</h3>
+            {% for section in guild %}
+                <a href="/{{ section.url }}">{{ section.name }}</a><br>
+            {% endfor %}
+        {% endif %}
+
+        {# All the social sections #}
+        {% if social != None %}
+            <br><br>
+            <h3>Social Sections</h3>
+            {% for section in social %}
+                <a href="/{{ section.url }}">{{ section.name }}</a><br>
+            {% endfor %}
+        {% endif %}
+
+        {# All the wellbeing sections #}
+        {% if wellbeing != None %}
+            <br><br>
+            <h3>Wellbeing Sections</h3>
+            {% for section in wellbeing %}
+                <a href="/{{ section.url }}">{{ section.name }}</a><br>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

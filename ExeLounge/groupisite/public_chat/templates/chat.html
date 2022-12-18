@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load material_form %}
+{% load static %}
+
+{% block title %}Live Chat - ExeLounge{% endblock %}
+
+{% block head %}
+    <script src="{% static 'js/chat.js' %}"></script>
+{% endblock %}
+
+{% block page-title %}Live Chat{% endblock %}
+
+{% block content %}
+    <p style="text-align: center">Chat with your peers using the box below! All chats are visible under your full
+        name.</p>
+    <div id="anon-content">
+        <div class="chat-log" id="id_chat_log">
+
+        </div>
+        <br>
+        <label for="id_chat_message_input">Type a message</label><input type="text" id="id_chat_message_input"
+                                                                        style="width: calc(100% - 70px)">
+        <button id="id_chat_message_submit" class="btn"
+                style="width: 60px;">
+            <i class="material-icons">send</i>
+        </button>
+    </div>
+
+    <script>setupPublicChatWebSocket({{ debug_mode|yesno:"true,false" }}, {{ room_id }})</script>
+
+{% endblock %}
